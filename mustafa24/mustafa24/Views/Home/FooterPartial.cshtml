@@ -1,0 +1,89 @@
+﻿@model IEnumerable<mustafa24.Models.Model.Blog>
+@using mustafa24.Helper;
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="widget">
+                    <h5 class="widgetheading">Mustafa Haber Sitesi Projesi</h5>
+                    <address>
+                        <strong>adres: @ViewBag.Iletisim.Adres</strong>
+
+                    </address>
+                    <p>
+                        <i class="icon-phone"></i>Whatsapp: @ViewBag.Iletisim.Telefon <br>
+                        <i class="icon-envelope-alt"></i>Twitter: @ViewBag.Iletisim.Twitter
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="widget">
+                    <h5 class="widgetheading">Menü</h5>
+                    <ul class="link-list">
+                        <li><a href="/Anasayfa/">Anasayfa</a></li>
+                        <li><a href="/Hakkimizda/">Hakkımızda</a></li>
+                        <li><a href="/BlogPost/">Haber</a></li>
+                        <li><a href="/Hizmetlerimiz/">Hizmetler</a></li>
+                        <li><a href="/iletisim/">İletişim</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="widget">
+                    <h5 class="widgetheading">Son Haberler</h5>
+                    <ul class="link-list">
+                        @foreach (var item in ViewBag.Blog)
+                        {
+                            <li><a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()-@item.BlogId">@item.Baslik</a></li>
+                        }
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="widget">
+                    <h5 class="widgetheading">Hizmetlerimiz</h5>
+                    <div class="flickr_badge">
+                        @foreach (var item in ViewBag.Hizmetler)
+                        {
+                            <img src="@item.ResimURL" width="75" height="30" />
+                        }
+
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sub-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="copyright">
+                        @DateTime.Now.Year <p>&copy; Tüm hakları saklıdır.</p>
+                        <div class="credits">
+                            <!--
+                              All the links in the footer should remain intact.
+                              You can delete the links only if you purchased the pro version.
+                              Licensing information: https://bootstrapmade.com/license/
+                              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Moderna
+                            -->
+                            Designed by <a href="https://mustafa24.com/">MustafaKamilSEVİNÇ</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="social-network">
+
+                        <li><a href="www.twitter.com/@ViewBag.Iletisim.Twitter" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="www.twitter.com/@ViewBag.Iletisim.Twitter" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="www.instagram.com/@ViewBag.Iletisim.Instagram" data-placement="top" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

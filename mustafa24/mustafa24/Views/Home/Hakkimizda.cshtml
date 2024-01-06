@@ -1,0 +1,17 @@
+﻿@model mustafa24.Models.Model.Hakkimizda
+@{
+    ViewBag.Title = "Hakkımızda";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+<div class="container">
+    <div class="col-md-12">
+        <h4>Mustafa Kamil SEVİNÇ</h4>
+        <h5>19291061</h5>
+        <h6>Web Uygulaması Projesi</h6>
+        <img src="~/Uploads/kimlik/Picture1.png" alt="" class="align-center img-box img-responsive" />
+        <p>
+            @Html.Raw(Model.Aciklama)
+        </p>
+    </div>
+</div>
+
